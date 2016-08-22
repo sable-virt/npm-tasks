@@ -27,7 +27,7 @@ function parseMiniMatch(value) {
 
 const action = cli.input.shift();
 const taskNames = mm(Object.keys(conf.task), action);
-
+const env = getMergedEnv();
 taskNames.forEach((taskName) => {
   const task = conf.task[taskName];
   const commandString = parseConfString(task);//.split(/\s/).concat(cli.input);
@@ -35,12 +35,23 @@ taskNames.forEach((taskName) => {
   multiTask(commands.slice());
 });
 
+function getMergedEnv() {
+    let env = Object.assign({},process.env);
+    for (let key in conf.config) {
+        let name = `npm_package_config_${key}`;
+        if (!env.hasOwnProperty(name)) {
+            env[name] = conf.config[key];
+        }
+    }
+    return env;
+}
+
 function multiTask(commands, params) {
   let command = commands.shift().split(/\s/).concat(cli.input);
   console.log(chalk.blue(`exec:`), `${command.join(' ')}`);
   run.spawn(command.shift(), command, {
     cwd: process.cwd(),
-    env: process.env,
+    env: env,
     stdio: 'inherit'
   }).on('exit', () => {
     if (commands.length === 0) return;
