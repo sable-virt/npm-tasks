@@ -42,11 +42,14 @@ package.json
 {
     ...
     scripts: {
-        "sass": "tasks sass",
-        "sass2": "npm-tasks sass"
+        "build": "tasks build:*",
+        "build:task1": "tasks sass",
+        "build:task2": "npm-tasks sass"
     }
 }
 ```
+
+You can use wildcard. ex `tasks build:*` -> `tasks build:tasks1 & tasks build:tasks2`
 
 ※ `tasks` is `npm-tasks` alias.
 
@@ -55,3 +58,16 @@ npm run sass
 ```
 
 ※ `npm run sass` -> `tasks sass` -> `node-sass /path/to/sass --output /dest/to/sass`
+
+## Sync Tasks 
+
+```
+{
+    ...
+    scripts: {
+        "build": "tasks sass postcss",
+        "sass": "tasks sass",
+        "postcsss": "tasks postcss"
+    }
+}
+```
