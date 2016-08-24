@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+'use strict';
 const run = require('npm-run');
 const chalk = require('chalk');
 const mm = require('micromatch');
