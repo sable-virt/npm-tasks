@@ -7,7 +7,7 @@ const util = require('../lib/util');
 const cli = require('../lib/cli');
 // const main = require('../bin/index');
 
-describe('sync-dir', function() {
+describe('npm-tasks', function() {
     beforeEach(() => {
     });
     afterEach(() => {
