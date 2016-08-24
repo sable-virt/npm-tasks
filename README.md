@@ -2,6 +2,10 @@
 
 power-up npm scripts for task runner.
 
+## Required
+
+Node.js =< 5,0
+
 ## Install
 
 Local Install
