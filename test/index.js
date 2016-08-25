@@ -1,21 +1,33 @@
 'use strict';
 const assert = require('power-assert');
 const fs = require('fs');
-const conf = require('../lib/conf');
-const pkg = require('../lib/package');
+const getConfig = require('../lib/conf');
+const getPackage = require('../lib/package');
 const util = require('../lib/util');
 const cli = require('../lib/cli');
-// const main = require('../bin/index');
 
 describe('npm-tasks', function() {
+    require('./parser');
+
     beforeEach(() => {
     });
     afterEach(() => {
     });
     it('init',() => {
-        assert(conf);
-        assert(pkg);
+        assert(getConfig);
+        assert(getPackage);
         assert(util);
         assert(cli);
+    });
+    it('getPackage', () => {
+        let pkg = getPackage();
+        assert(pkg);
+        assert(pkg.name === 'npm-tasks');
+    });
+    it('getConfig', () => {
+        let conf = getConfig();
+        console.log(conf);
+        assert(conf.config.dest === 'public');
+        assert(conf.task.test === 'echo \'${dest}\'');
     });
 });
