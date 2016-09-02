@@ -4,7 +4,7 @@ power-up npm scripts for task runner.
 
 ## Required
 
-Node.js =< 5,0
+Node.js =< 5.0
 
 ## Install
 
@@ -22,7 +22,7 @@ npm i npm-tasks -g
 
 ## Usage
 
-create runner.conf.js
+create `task.conf.js`
 
 ```
 module.exports = {
@@ -42,6 +42,7 @@ module.exports = {
 ## Example
 
 package.json
+
 ```
 {
     ...
@@ -63,7 +64,7 @@ npm run sass
 
 ※ `npm run sass` -> `tasks sass` -> `node-sass /path/to/sass --output /dest/to/sass`
 
-## Sync Tasks 
+## Sync Tasks
 
 ```
 {
