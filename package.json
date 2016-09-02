@@ -1,6 +1,6 @@
 {
   "name": "npm-tasks",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "description": "power-up npm scripts for task runner",
   "main": "index.js",
   "scripts": {
