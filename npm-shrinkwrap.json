@@ -1,6 +1,6 @@
 {
   "name": "npm-tasks",
-  "version": "1.4.3",
+  "version": "1.4.4",
   "dependencies": {
     "acorn": {
       "version": "2.7.0",
